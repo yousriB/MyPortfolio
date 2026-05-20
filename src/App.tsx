@@ -28,6 +28,7 @@ export default function App() {
         <Testimonials />
         <Approach />
         <Contact />
+        
       </main>
       <Footer />
     </ContactPrefillProvider>
