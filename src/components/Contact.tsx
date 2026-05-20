@@ -180,8 +180,8 @@ export default function Contact() {
                     onChange={(e) => setService(e.target.value)}
                     className="w-full bg-brand-950 border border-white/10 rounded-lg p-3 text-sm text-slate-300 focus:outline-none focus:border-blue-500 transition-colors"
                   >
-                    <option value="Essential Landing Page">Creative Landing Page ($1,200)</option>
-                    <option value="Full-Stack SaaS">Full-Stack SaaS Platform ($3,500)</option>
+                    <option value="Essential Landing Page">Creative Landing Page (TND 1,200)</option>
+                    <option value="Full-Stack SaaS">Full-Stack SaaS Platform (TND 3,500)</option>
                     <option value="Creative Animated Site">Creative Web Experience (Custom)</option>
                     <option value="Security Consultation">Security Audit & Consultation</option>
                   </select>
@@ -196,7 +196,7 @@ export default function Contact() {
                     name="budget"
                     value={budget}
                     onChange={(e) => setBudget(e.target.value)}
-                    placeholder="e.g. $1,200"
+                    placeholder="e.g. TND 1,200"
                     className="w-full bg-brand-950 border border-white/10 rounded-lg p-3 text-sm text-slate-300 placeholder:text-slate-600 focus:outline-none focus:border-blue-500 transition-colors"
                   />
                 </div>
