@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Menu, Moon, Shield, Sun, X } from 'lucide-react';
+import { Menu, Shield, X } from 'lucide-react';
 
 const navLinks = [
   { href: '#about', label: 'About' },

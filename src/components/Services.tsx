@@ -1,36 +1,15 @@
-import { useMemo, useState } from 'react';
 import { Check, DollarSign } from 'lucide-react';
 import { pricingTiers } from '../data/pricing';
 import { useContactPrefill } from '../hooks/useContactPrefill';
 
-const baseToService: Record<string, string> = {
-  '1200': 'Essential Landing Page',
-  '2500': 'Creative Animated Site',
-  '3500': 'Full-Stack SaaS',
-};
-
 export default function Services() {
   const { setPrefill } = useContactPrefill();
-  const [base, setBase] = useState('1200');
-  const [withWebgl, setWithWebgl] = useState(false);
-
-  const totalCost = useMemo(() => {
-    const basePrice = parseInt(base, 10) || 0;
-    return basePrice + (withWebgl ? 600 : 0);
-  }, [base, withWebgl]);
-
-  const formattedCost = `$${totalCost.toLocaleString()}`;
 
   const handleSelectPricing = (value: string) => {
     let budget = 'Custom';
     if (value === 'Essential Landing Page') budget = '$1,200';
     else if (value === 'Full-Stack SaaS') budget = '$3,500';
     setPrefill({ service: value, budget });
-  };
-
-  const applyEstimate = () => {
-    const service = baseToService[base] ?? 'Creative Animated Site';
-    setPrefill({ service, budget: formattedCost });
   };
 
   return (
@@ -132,76 +111,6 @@ export default function Services() {
           })}
         </div>
 
-        {/* <div className="bg-white/5 border border-white/10 rounded-2xl p-8 max-w-4xl mx-auto space-y-8 gsap-reveal">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-            <div className="space-y-1">
-              <h3 className="text-xl font-bold text-white">Interactive Budget Estimator</h3>
-              <p className="text-sm text-slate-400 font-light">
-                Toggle options to build your ideal project configuration.
-              </p>
-            </div>
-            <div className="text-right">
-              <span className="text-xs font-mono text-slate-500 uppercase tracking-widest block">
-                Estimated Cost
-              </span>
-              <span className="text-3xl font-extrabold text-blue-400 font-mono">
-                {formattedCost}
-              </span>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4 border-t border-white/5">
-            <div className="space-y-3">
-              <label className="block text-xs font-mono font-bold uppercase tracking-wider text-slate-400">
-                Select Core Architecture
-              </label>
-              <select
-                value={base}
-                onChange={(e) => setBase(e.target.value)}
-                className="w-full bg-brand-950 border border-white/10 rounded-lg p-3 text-sm text-slate-300 focus:outline-none focus:border-blue-500"
-              >
-                <option value="1200">Creative Landing Page ($1,200)</option>
-                <option value="2500">Multi-page Business Showcase ($2,500)</option>
-                <option value="3500">Full-Stack Custom SaaS App ($3,500)</option>
-              </select>
-            </div>
-
-            <div className="space-y-3">
-              <label className="block text-xs font-mono font-bold uppercase tracking-wider text-slate-400">
-                Add-On Capabilities
-              </label>
-              <div className="grid grid-cols-2 gap-3">
-                <label className="flex items-center gap-2.5 p-3 rounded-lg border border-white/5 bg-brand-950/40 hover:bg-brand-950 cursor-pointer select-none transition-colors">
-                  <input type="checkbox" checked readOnly className="accent-blue-500 rounded" />
-                  <span className="text-xs font-mono text-slate-300">Default Security (Free)</span>
-                </label>
-                <label className="flex items-center gap-2.5 p-3 rounded-lg border border-white/5 bg-brand-950/40 hover:bg-brand-950 cursor-pointer select-none transition-colors">
-                  <input
-                    type="checkbox"
-                    checked={withWebgl}
-                    onChange={(e) => setWithWebgl(e.target.checked)}
-                    className="accent-blue-500 rounded"
-                  />
-                  <span className="text-xs font-mono text-slate-300">WebGL/GSAP (+$600)</span>
-                </label>
-              </div>
-            </div>
-          </div>
-
-          <div className="pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-xs text-slate-400 font-light max-w-md">
-              Estimates are subject to final project scope consultations. Ready to proceed with this
-              custom build?
-            </p>
-            <a
-              href="#contact"
-              onClick={applyEstimate}
-              className="w-full sm:w-auto px-6 py-3 text-center text-xs font-mono font-bold uppercase bg-blue-500 hover:bg-blue-400 text-black rounded transition-all"
-            >
-              Secure This Configuration
-            </a>
-          </div>
-        </div> */}
       </div>
     </section>
   );
