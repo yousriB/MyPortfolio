@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import {
+  AlertCircle,
   CheckCircle,
   Copy,
   Github,
   Linkedin,
+  Loader2,
   Mail,
   MailCheck,
   Phone,
@@ -12,6 +14,7 @@ import {
 import { useContactPrefill } from '../hooks/useContactPrefill';
 
 const EMAIL = 'benaliyousri00@gmail.com';
+const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY as string | undefined;
 
 export default function Contact() {
   const { prefill } = useContactPrefill();
@@ -22,6 +25,8 @@ export default function Contact() {
   const [budget, setBudget] = useState(prefill.budget);
   const [message, setMessage] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [copyAlert, setCopyAlert] = useState(false);
 
   useEffect(() => {
@@ -50,13 +55,48 @@ export default function Contact() {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    if (!WEB3FORMS_KEY) {
+      setError('Email service is not configured. Please set VITE_WEB3FORMS_KEY.');
+      return;
+    }
+    setSending(true);
+    setError(null);
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject: `New project inquiry from ${name}`,
+          from_name: name,
+          replyto: email,
+          name,
+          email,
+          service,
+          budget: budget || 'Not specified',
+          message,
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.success) {
+        throw new Error(data.message || 'Failed to send message');
+      }
+      setSubmitted(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Something went wrong. Please try again.');
+    } finally {
+      setSending(false);
+    }
   };
 
   const reset = () => {
     setSubmitted(false);
+    setError(null);
     setName('');
     setEmail('');
     setService('Essential Landing Page');
@@ -217,12 +257,29 @@ export default function Contact() {
                 />
               </div>
 
+              {error && (
+                <div className="flex items-start gap-2 p-3 rounded-lg bg-red-500/10 border border-red-500/20 text-xs text-red-400 font-mono">
+                  <AlertCircle className="w-4 h-4 mt-0.5 shrink-0" />
+                  <span>{error}</span>
+                </div>
+              )}
+
               <button
                 type="submit"
-                className="w-full py-4 bg-white hover:bg-blue-400 text-black font-mono font-bold uppercase rounded text-xs tracking-wider transition-all duration-300 flex items-center justify-center space-x-2"
+                disabled={sending}
+                className="w-full py-4 bg-white hover:bg-blue-400 text-black font-mono font-bold uppercase rounded text-xs tracking-wider transition-all duration-300 flex items-center justify-center space-x-2 disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                <Send className="w-4 h-4" />
-                <span>Transmit Project Details</span>
+                {sending ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    <span>Transmitting...</span>
+                  </>
+                ) : (
+                  <>
+                    <Send className="w-4 h-4" />
+                    <span>Transmit Project Details</span>
+                  </>
+                )}
               </button>
             </form>
 

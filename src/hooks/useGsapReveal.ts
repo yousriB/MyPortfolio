@@ -71,6 +71,28 @@ export function useGsapReveal() {
         );
       });
 
+      // Capability cards smooth stagger
+      gsap.utils.toArray<HTMLElement>('.capability-grid').forEach((grid) => {
+        const cards = gsap.utils.toArray<HTMLElement>(':scope > div', grid);
+        gsap.fromTo(
+          cards,
+          { opacity: 0, y: 30, scale: 0.97 },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.9,
+            ease: 'power3.out',
+            stagger: 0.12,
+            scrollTrigger: {
+              trigger: grid,
+              start: 'top 85%',
+              once: true,
+            },
+          },
+        );
+      });
+
       // Experience timeline node animations
       gsap.utils.toArray<HTMLElement>('.timeline-item').forEach((item) => {
         const bullet = item.querySelector<HTMLElement>('div.absolute');

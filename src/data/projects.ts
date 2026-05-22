@@ -13,6 +13,17 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+   {
+    title: 'ForumAuto Gabès',
+    description:
+      'A modern car exhibition website presenting a wide selection of cars with full details and elegant design.',
+    image: '/projects/forum.png',
+    alt: 'ForumAuto Gabès',
+    tech: 'nextjs',
+    tags: ['Next.js', 'Tailwind', 'Car Showcase'],
+    liveUrl: 'https://www.forumautogabes.com/',
+    sourceUrl: 'https://github.com/yousriB/autogabes',
+  },
   {
     title: 'Quiter FB Moto',
     description:
@@ -25,15 +36,15 @@ export const projects: Project[] = [
     sourceUrl: 'https://github.com/yousriB/minimalistbike',
   },
   {
-    title: 'Hedi Coiffure',
+    title: 'Ellisa Center for Professional Excellence',
     description:
-      'A modern, elegant barber shop website built with Next.js. Clean professional design with smooth animations and seamless UX for services and gallery.',
-    image: '/projects/coiffeur.png',
-    alt: 'Hedi Coiffure',
+      'A training center website that transforms ambition into success with a simple and attractive design.',
+    image: '/projects/ellisa.png',
+    alt: 'Ellisa Center for Professional Excellence',
     tech: 'nextjs',
-    tags: ['Next.js', 'Tailwind', 'Portfolio', 'Animation'],
-    liveUrl: 'https://hediportfolio.vercel.app/',
-    sourceUrl: 'https://github.com/yousriB/gulf-grooms',
+    tags: ['Next.js', 'Tailwind', 'Formation'],
+    liveUrl: 'https://ellisa-three.vercel.app/',
+    sourceUrl: 'https://github.com/yousriB/Ellisa',
   },
   {
     title: 'Cocktails GSAP Website',
@@ -57,27 +68,17 @@ export const projects: Project[] = [
     liveUrl: 'https://gaming-two-teal.vercel.app/',
     sourceUrl: 'https://github.com/yousriB/gaming',
   },
-  {
-    title: 'Ellisa Center for Professional Excellence',
+ 
+    {
+    title: 'Hedi Coiffure',
     description:
-      'A training center website that transforms ambition into success with a simple and attractive design.',
-    image: '/projects/ellisa.png',
-    alt: 'Ellisa Center for Professional Excellence',
+      'A modern, elegant barber shop website built with Next.js. Clean professional design with smooth animations and seamless UX for services and gallery.',
+    image: '/projects/coiffeur.png',
+    alt: 'Hedi Coiffure',
     tech: 'nextjs',
-    tags: ['Next.js', 'Tailwind', 'Formation'],
-    liveUrl: 'https://ellisa-three.vercel.app/',
-    sourceUrl: 'https://github.com/yousriB/Ellisa',
-  },
-  {
-    title: 'ForumAuto Gabès',
-    description:
-      'A modern car exhibition website presenting a wide selection of cars with full details and elegant design.',
-    image: '/projects/forum.png',
-    alt: 'ForumAuto Gabès',
-    tech: 'nextjs',
-    tags: ['Next.js', 'Tailwind', 'Car Showcase'],
-    liveUrl: 'https://www.forumautogabes.com/',
-    sourceUrl: 'https://github.com/yousriB/autogabes',
+    tags: ['Next.js', 'Tailwind', 'Portfolio', 'Animation'],
+    liveUrl: 'https://hediportfolio.vercel.app/',
+    sourceUrl: 'https://github.com/yousriB/gulf-grooms',
   },
   {
     title: 'Modern Bank',
@@ -104,30 +105,6 @@ export const projects: Project[] = [
     extra: true,
   },
   {
-    title: 'DreamHouse Luxury Estates',
-    description:
-      'A sleek real estate website showcasing luxury properties with search filters and a blog for market insights.',
-    image: '/projects/houses.png',
-    alt: 'DreamHouse Luxury Estates',
-    tech: 'nextjs',
-    tags: ['React', 'Tailwind', 'Real Estate', 'Search Filters'],
-    liveUrl: 'https://dreamhouse-elegance.vercel.app/',
-    sourceUrl: 'https://github.com/yousriB/dreamhouse-elegance-frontend',
-    extra: true,
-  },
-  {
-    title: 'SolarTech',
-    description:
-      'A clean and modern website promoting solar energy solutions with product displays and easy quote requests.',
-    image: '/projects/solair.png',
-    alt: 'SolarTech',
-    tech: 'nextjs',
-    tags: ['React', 'Tailwind', 'Renewable Energy', 'Lead Generation'],
-    liveUrl: 'https://solartech-web-oasis.vercel.app/',
-    sourceUrl: 'https://github.com/yousriB/solartech-web-oasis',
-    extra: true,
-  },
-  {
     title: 'Bus Management System',
     description:
       'A platform for managing bus transport including route tracking, trip scheduling, and driver data.',
@@ -137,18 +114,6 @@ export const projects: Project[] = [
     tags: ['Next.js', 'Tailwind', 'Transportation'],
     liveUrl: 'https://busses-pi.vercel.app/',
     sourceUrl: 'https://github.com/yousriB/busses',
-    extra: true,
-  },
-  {
-    title: 'Elegant Events',
-    description:
-      'A stylish event planning website showcasing services, testimonials, and a consultation booking system.',
-    image: '/projects/wedding.png',
-    alt: 'Elegant Events',
-    tech: 'nextjs',
-    tags: ['React', 'Tailwind', 'UI/UX', 'Event Booking'],
-    liveUrl: 'https://eventsplanning.vercel.app/',
-    sourceUrl: 'https://github.com/yousriB/Events',
     extra: true,
   },
   {

@@ -37,7 +37,7 @@ export default function About() {
             </div>
           </div>
 
-          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4 capability-grid">
             {capabilities.map(({ icon: Icon, title, description }) => (
               <div
                 key={title}
