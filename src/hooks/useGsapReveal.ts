@@ -103,16 +103,6 @@ export function useGsapReveal() {
         }
       });
 
-      // Capability cards stagger
-      gsap.from('.capability-grid > div', {
-        scrollTrigger: { trigger: '.capability-grid', start: 'top 80%' },
-        opacity: 0,
-        y: 20,
-        stagger: 0.1,
-        duration: 0.6,
-        ease: 'power3.out',
-      });
-
       ScrollTrigger.refresh();
     });
 
