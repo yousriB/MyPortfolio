@@ -1,6 +1,14 @@
-import { ArrowRight, MessageSquare } from 'lucide-react';
+import { ArrowRight, MessageSquare } from "lucide-react";
 
-const techBadges = ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'PostgreSQL', 'Supabase'];
+const techBadges = [
+  "Next.js",
+  "React",
+  "TypeScript",
+  "Tailwind CSS",
+  "PostgreSQL",
+  "Supabase",
+  "Node.js",
+];
 
 export default function Hero() {
   return (
@@ -26,9 +34,11 @@ export default function Hero() {
           </h1>
 
           <p className="hero-item text-base sm:text-lg text-slate-400 max-w-xl font-light leading-relaxed">
-            I'm <strong className="text-white font-medium">Yousri Ben Ali</strong>, a Creative
-            Full-Stack Developer shaping exceptional, high-performance web applications. My process
-            blends rigorous security practices, clean minimalist designs, and high-performance
+            I'm{" "}
+            <strong className="text-white font-medium">Yousri Ben Ali</strong>,
+            a Creative Full-Stack Developer shaping exceptional,
+            high-performance web applications. My process blends rigorous
+            security practices, clean minimalist designs, and high-performance
             engineering.
           </p>
 
@@ -69,13 +79,15 @@ export default function Hero() {
                 <span className="w-3 h-3 rounded-full bg-yellow-500/80" />
                 <span className="w-3 h-3 rounded-full bg-green-500/80" />
               </div>
-              <span className="text-xs font-mono text-slate-500">yousri@stack:~</span>
+              <span className="text-xs font-mono text-slate-500">
+                yousri@stack:~
+              </span>
             </div>
 
             <div className="font-mono text-sm space-y-3 my-6 flex-grow overflow-hidden select-none">
               <p className="text-slate-500">// Creative Developer Manifesto</p>
               <p className="text-blue-400">
-                const <span className="text-purple-400">developer</span> = {'{'}
+                const <span className="text-purple-400">developer</span> = {"{"}
               </p>
               <p className="pl-4 text-slate-300">
                 name: <span className="text-green-300">"Yousri Ben Ali"</span>,
@@ -84,7 +96,11 @@ export default function Hero() {
                 experience: <span className="text-amber-300">"5+ Years"</span>,
               </p>
               <p className="pl-4 text-slate-300">
-                specialization: <span className="text-green-300">"Full-Stack Web Architect"</span>,
+                specialization:{" "}
+                <span className="text-green-300">
+                  "Full-Stack Web Architect"
+                </span>
+                ,
               </p>
               <p className="pl-4 text-slate-300">focus: [</p>
               <p className="pl-8 text-blue-300">
@@ -92,11 +108,15 @@ export default function Hero() {
               </p>
               <p className="pl-4 text-slate-300">],</p>
               <p className="pl-4 text-slate-300">
-                passion: <span className="text-amber-300">"Ideas into flawless digital reality"</span>
+                passion:{" "}
+                <span className="text-amber-300">
+                  "Ideas into flawless digital reality"
+                </span>
               </p>
-              <p className="text-blue-400">{'};'}</p>
+              <p className="text-blue-400">{"};"}</p>
               <p className="text-slate-400 mt-4 cursor-blink">
-                _ <span className="inline-block w-2 h-4 bg-blue-400 animate-pulse" />
+                _{" "}
+                <span className="inline-block w-2 h-4 bg-blue-400 animate-pulse" />
               </p>
             </div>
 

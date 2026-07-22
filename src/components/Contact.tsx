@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 import {
   AlertCircle,
   CheckCircle,
@@ -10,20 +10,20 @@ import {
   MailCheck,
   Phone,
   Send,
-} from 'lucide-react';
-import { useContactPrefill } from '../hooks/useContactPrefill';
+} from "lucide-react";
+import { useContactPrefill } from "../hooks/useContactPrefill";
 
-const EMAIL = 'benaliyousri00@gmail.com';
+const EMAIL = "benaliyousri00@gmail.com";
 const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY as string | undefined;
 
 export default function Contact() {
   const { prefill } = useContactPrefill();
 
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [service, setService] = useState(prefill.service);
   const [budget, setBudget] = useState(prefill.budget);
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -41,11 +41,11 @@ export default function Contact() {
       if (navigator.clipboard && window.isSecureContext) {
         await navigator.clipboard.writeText(EMAIL);
       } else {
-        const temp = document.createElement('textarea');
+        const temp = document.createElement("textarea");
         temp.value = EMAIL;
         document.body.appendChild(temp);
         temp.select();
-        document.execCommand('copy');
+        document.execCommand("copy");
         document.body.removeChild(temp);
       }
       setCopyAlert(true);
@@ -58,17 +58,19 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!WEB3FORMS_KEY) {
-      setError('Email service is not configured. Please set VITE_WEB3FORMS_KEY.');
+      setError(
+        "Email service is not configured. Please set VITE_WEB3FORMS_KEY.",
+      );
       return;
     }
     setSending(true);
     setError(null);
     try {
-      const res = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
+          "Content-Type": "application/json",
+          Accept: "application/json",
         },
         body: JSON.stringify({
           access_key: WEB3FORMS_KEY,
@@ -78,17 +80,21 @@ export default function Contact() {
           name,
           email,
           service,
-          budget: budget || 'Not specified',
+          budget: budget || "Not specified",
           message,
         }),
       });
       const data = await res.json();
       if (!res.ok || !data.success) {
-        throw new Error(data.message || 'Failed to send message');
+        throw new Error(data.message || "Failed to send message");
       }
       setSubmitted(true);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Something went wrong. Please try again.');
+      setError(
+        err instanceof Error
+          ? err.message
+          : "Something went wrong. Please try again.",
+      );
     } finally {
       setSending(false);
     }
@@ -97,11 +103,11 @@ export default function Contact() {
   const reset = () => {
     setSubmitted(false);
     setError(null);
-    setName('');
-    setEmail('');
-    setService('Essential Landing Page');
-    setBudget('');
-    setMessage('');
+    setName("");
+    setEmail("");
+    setService("Essential Landing Page");
+    setBudget("");
+    setMessage("");
   };
 
   return (
@@ -120,8 +126,9 @@ export default function Contact() {
                 something amazing.
               </h2>
               <p className="text-slate-400 font-light leading-relaxed">
-                Have an idea, project blueprint, or security refactoring request? Send me a
-                message, or simply copy my direct address below.
+                Have an idea, project blueprint, or security refactoring
+                request? Send me a message, or simply copy my direct address
+                below.
               </p>
             </div>
 
@@ -143,7 +150,8 @@ export default function Contact() {
               </div>
               {copyAlert && (
                 <div className="text-xs text-emerald-400 font-mono flex items-center gap-1.5 pt-1">
-                  <CheckCircle className="w-3.5 h-3.5" /> Email address copied successfully!
+                  <CheckCircle className="w-3.5 h-3.5" /> Email address copied
+                  successfully!
                 </div>
               )}
             </div>
@@ -220,10 +228,18 @@ export default function Contact() {
                     onChange={(e) => setService(e.target.value)}
                     className="w-full bg-brand-950 border border-white/10 rounded-lg p-3 text-sm text-slate-300 focus:outline-none focus:border-blue-500 transition-colors"
                   >
-                    <option value="Essential Landing Page">Creative Landing Page (TND 1,200)</option>
-                    <option value="Full-Stack SaaS">Full-Stack SaaS Platform (TND 3,500)</option>
-                    <option value="Creative Animated Site">Creative Web Experience (Custom)</option>
-                    <option value="Security Consultation">Security Audit & Consultation</option>
+                    <option value="Essential Landing Page">
+                      Creative Landing Page (TND 1,200)
+                    </option>
+                    <option value="Full-Stack SaaS">
+                      Full-Stack SaaS Platform (TND 3,500)
+                    </option>
+                    <option value="Creative Animated Site">
+                      Creative Web Experience (Custom)
+                    </option>
+                    <option value="Security Consultation">
+                      Security Audit & Consultation
+                    </option>
                   </select>
                 </div>
 
@@ -288,10 +304,13 @@ export default function Contact() {
                 <div className="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
                   <MailCheck className="w-8 h-8" />
                 </div>
-                <h3 className="text-xl font-bold text-white">Project Details Received!</h3>
+                <h3 className="text-xl font-bold text-white">
+                  Project Details Received!
+                </h3>
                 <p className="text-sm text-slate-400 max-w-sm">
-                  Thanks for reaching out! Your configurations and contact details have been
-                  securely formatted. I'll get back to you within 24 hours.
+                  Thanks for reaching out! Your configurations and contact
+                  details have been securely formatted. I'll get back to you
+                  within 24 hours.
                 </p>
                 <button
                   onClick={reset}

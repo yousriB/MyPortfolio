@@ -10,7 +10,7 @@ export const testimonials: Testimonial[] = [
   {
     quote:
       'Yousri delivered a professional and responsive website for our dealership that truly impressed our clients. His work on the Forum Auto Gabès platform has helped us showcase our cars better and attract more leads.',
-    name: 'Youssef',
+    name: 'Ali',
     role: 'Forum Auto Gabès',
     initials: 'KB',
     gradient: 'from-blue-500 to-indigo-500',
