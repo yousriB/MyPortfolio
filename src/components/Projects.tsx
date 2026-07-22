@@ -1,24 +1,24 @@
-import { useMemo, useState } from 'react';
-import { ChevronDown, ExternalLink, Github } from 'lucide-react';
-import { projects } from '../data/projects';
-import type { ProjectTech } from '../data/projects';
+import { useMemo, useState } from "react";
+import { ChevronDown, ExternalLink, Github } from "lucide-react";
+import { projects } from "../data/projects";
+import type { ProjectTech } from "../data/projects";
 
-type Filter = 'all' | ProjectTech;
+type Filter = "all" | ProjectTech;
 
 const filters: { key: Filter; label: string }[] = [
-  { key: 'all', label: 'All Projects' },
-  { key: 'nextjs', label: 'Next.js / React' },
-  { key: 'creative', label: 'Animations' },
+  { key: "all", label: "All Projects" },
+  { key: "nextjs", label: "Next.js / React" },
+  { key: "creative", label: "Animations" },
 ];
 
 export default function Projects() {
-  const [filter, setFilter] = useState<Filter>('all');
+  const [filter, setFilter] = useState<Filter>("all");
   const [showAll, setShowAll] = useState(false);
 
   const visibleProjects = useMemo(
     () =>
       projects.filter((project) => {
-        const matchesFilter = filter === 'all' || project.tech === filter;
+        const matchesFilter = filter === "all" || project.tech === filter;
         if (!matchesFilter) return false;
         return showAll || !project.extra;
       }),
@@ -28,13 +28,17 @@ export default function Projects() {
   const hasMatchingExtras = useMemo(
     () =>
       projects.some(
-        (project) => project.extra && (filter === 'all' || project.tech === filter),
+        (project) =>
+          project.extra && (filter === "all" || project.tech === filter),
       ),
     [filter],
   );
 
   return (
-    <section id="projects" className="py-24 bg-brand-950/80 border-t border-white/5">
+    <section
+      id="projects"
+      className="py-24 bg-brand-950/80 border-t border-white/5"
+    >
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 mb-16 gsap-reveal-fade">
           <div className="space-y-4">
@@ -47,8 +51,8 @@ export default function Projects() {
               Recent Projects Showcase
             </h2>
             <p className="text-slate-400 font-light max-w-lg">
-              A handpicked curation of live platforms, complex booking systems, and bespoke UI
-              designs.
+              A handpicked curation of live platforms, complex booking systems,
+              and bespoke UI designs.
             </p>
           </div>
 
@@ -61,8 +65,8 @@ export default function Projects() {
                   onClick={() => setFilter(f.key)}
                   className={
                     active
-                      ? 'px-4 py-2 rounded-full border border-blue-500/20 bg-blue-500 text-white transition-all'
-                      : 'px-4 py-2 rounded-full border border-white/5 bg-white/5 text-slate-400 hover:text-white hover:bg-white/10 transition-all'
+                      ? "px-4 py-2 rounded-full border border-blue-500/20 bg-blue-500 text-white transition-all"
+                      : "px-4 py-2 rounded-full border border-white/5 bg-white/5 text-slate-400 hover:text-white hover:bg-white/10 transition-all"
                   }
                 >
                   {f.label}
@@ -116,14 +120,14 @@ export default function Projects() {
                     >
                       <ExternalLink className="w-3.5 h-3.5" /> Live Demo
                     </a>
-                    <a
+                    {/* <a
                       href={project.sourceUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-1.5 text-slate-400 hover:text-white transition-colors"
                     >
                       <Github className="w-3.5 h-3.5" /> Source Code
-                    </a>
+                    </a> */}
                   </div>
                 </div>
               </div>
@@ -137,9 +141,9 @@ export default function Projects() {
               onClick={() => setShowAll((prev) => !prev)}
               className="inline-flex items-center gap-2 px-6 py-3 text-xs font-mono font-bold uppercase tracking-wider border border-white/10 hover:border-white bg-white/5 hover:bg-white/10 text-white rounded-full transition-all"
             >
-              <span>{showAll ? 'Show Less' : 'Show More Projects'}</span>
+              <span>{showAll ? "Show Less" : "Show More Projects"}</span>
               <ChevronDown
-                className={`w-4 h-4 transition-transform ${showAll ? 'rotate-180' : ''}`}
+                className={`w-4 h-4 transition-transform ${showAll ? "rotate-180" : ""}`}
               />
             </button>
           </div>
