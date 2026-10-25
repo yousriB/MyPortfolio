@@ -13,6 +13,19 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  
+{
+  title: "BYD — VIP Invitation",
+  description:
+    "An elegant and modern VIP invitation website designed for the BYD launch event at Forum Auto Gabès, featuring a premium automotive-inspired design and an exclusive digital invitation experience.",
+  image: "/projects/byd.png",
+  alt: "BYD VIP Invitation — Forum Auto Gabès",
+  tech: "creative",
+  tags: ["Next.js", "Tailwind", "VIP Invitation", "Landing Page" ,"Animation"],
+  liveUrl: "https://byd-invitation.vercel.app/",
+  sourceUrl: "",
+},
+
   {
     title: "ForumAuto Gabès",
     description:
@@ -46,16 +59,16 @@ export const projects: Project[] = [
     liveUrl: "https://ellisa-three.vercel.app/",
     sourceUrl: "https://github.com/yousriB/Ellisa",
   },
-  {
-    title: "Cocktails GSAP Website",
+   {
+    title: "OSE Tunisia",
     description:
-      "A cinematic GSAP-powered React site with scroll-triggered video, parallax effects, and polished transitions across multiple interactive sections.",
-    image: "/projects/cocktail.png",
-    alt: "Cocktails GSAP Website",
-    tech: "creative",
-    tags: ["React", "Tailwind", "GSAP", "Parallax"],
-    liveUrl: "https://cocktails-bice.vercel.app/",
-    sourceUrl: "https://github.com/yousriB/gsap_cocktails",
+      "A professional corporate website presenting OSE activities, services, expertise, and industrial solutions with a modern and responsive design.",
+    image: "/projects/ose.png",
+    alt: "OSE Tunisia",
+    tech: "nextjs",
+    tags: ["Next.js", "Tailwind", "Corporate Website", "Industrial"],
+    liveUrl: "https://ose.com.tn/",
+    sourceUrl: "",
   },
   {
     title: "Gaming Platform",
@@ -68,16 +81,16 @@ export const projects: Project[] = [
     liveUrl: "https://gaming-two-teal.vercel.app/",
     sourceUrl: "https://github.com/yousriB/gaming",
   },
-  {
-    title: "OSE Tunisia",
+   {
+    title: "Cocktails GSAP Website",
     description:
-      "A professional corporate website presenting OSE activities, services, expertise, and industrial solutions with a modern and responsive design.",
-    image: "/projects/ose.png",
-    alt: "OSE Tunisia",
-    tech: "nextjs",
-    tags: ["Next.js", "Tailwind", "Corporate Website", "Industrial"],
-    liveUrl: "https://ose.com.tn/",
-    sourceUrl: "",
+      "A cinematic GSAP-powered React site with scroll-triggered video, parallax effects, and polished transitions across multiple interactive sections.",
+    image: "/projects/cocktail.png",
+    alt: "Cocktails GSAP Website",
+    tech: "creative",
+    tags: ["React", "Tailwind", "GSAP", "Parallax"],
+    liveUrl: "https://cocktails-bice.vercel.app/",
+    sourceUrl: "https://github.com/yousriB/gsap_cocktails",
   },
 
   {

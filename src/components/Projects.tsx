@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { ChevronDown, ExternalLink, Github } from "lucide-react";
+import { ChevronDown, ExternalLink } from "lucide-react";
 import { projects } from "../data/projects";
 import type { ProjectTech } from "../data/projects";
 
@@ -15,24 +15,21 @@ export default function Projects() {
   const [filter, setFilter] = useState<Filter>("all");
   const [showAll, setShowAll] = useState(false);
 
-  const visibleProjects = useMemo(
-    () =>
-      projects.filter((project) => {
-        const matchesFilter = filter === "all" || project.tech === filter;
-        if (!matchesFilter) return false;
-        return showAll || !project.extra;
-      }),
-    [filter, showAll],
-  );
+  const visibleProjects = useMemo(() => {
+    const filteredProjects = projects.filter(
+      (project) => filter === "all" || project.tech === filter,
+    );
 
-  const hasMatchingExtras = useMemo(
-    () =>
-      projects.some(
-        (project) =>
-          project.extra && (filter === "all" || project.tech === filter),
-      ),
-    [filter],
-  );
+    return showAll ? filteredProjects : filteredProjects.slice(0, 6);
+  }, [filter, showAll]);
+
+  const hasMatchingExtras = useMemo(() => {
+    const matchingProjects = projects.filter(
+      (project) => filter === "all" || project.tech === filter,
+    );
+
+    return matchingProjects.length > 6;
+  }, [filter]);
 
   return (
     <section
